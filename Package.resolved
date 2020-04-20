@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftyJSON",
+        "repositoryURL": "https://github.com/IBM-Swift/SwiftyJSON",
+        "state": {
+          "branch": null,
+          "revision": "f9b4754017cfad4701f0838b2e507b442eaca70a",
+          "version": "17.0.5"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
