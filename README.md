@@ -8,8 +8,7 @@ This library can be imported into your project using SPM:
 ```swift
     .package(url:"https://github.com/FreeApp2014/SwiftyCM")
 ```
-to your dependencies<br>
-and `dependencies: ["SwiftyCM"]` in your main target.
+to your package.dependencies and `dependencies: ["SwiftyCM"]` in your main target.
 
 ## Example usage
 
@@ -78,4 +77,4 @@ A struct containing information about looping:
 * loopTypeDesc: String - the loop type string 
 
 ## Thrown errors
-jsonParseError, httpRequestError, objectNotFoundError, otherApiError, nestedError
+jsonParseError, httpRequestError, objectNotFoundError, otherApiError,

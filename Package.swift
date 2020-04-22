@@ -10,7 +10,6 @@ let package = Package(
         .library(
             name: "SwiftyCM",
             targets: ["SwiftyCM"]),
-        //.executable(name: "SCMclient", targets: ["client"])
     ],
     dependencies: [
         .package(url: "https://github.com/IBM-Swift/SwiftyJSON", from: "17.0.5")
@@ -22,7 +21,6 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "SwiftyCM",
-            dependencies: ["SwiftyJSON"]),
-        //.target(name: "client", dependencies: ["SwiftyCM"])
+            dependencies: ["SwiftyJSON"])
     ]
 )
