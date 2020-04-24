@@ -79,6 +79,9 @@ public struct Song {
         guard let data = performGetRequest(url: "https://smashcustommusic.net/\(format)/\(self.id)") else {
             return nil
         }
+        if (data.0.statusCode) != 200 {
+            return nil;
+        }
         return data.1;
     }
 }

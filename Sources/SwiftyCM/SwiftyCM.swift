@@ -2,14 +2,14 @@ import Foundation
 import FoundationNetworking
 import SwiftyJSON
 
-func performGetRequest(url: String) -> (URLResponse, Data)? {
+func performGetRequest(url: String) -> (HTTPURLResponse, Data)? {
     let url: URL = URL(string: url)!;
-    var returned: (URLResponse, Data)?;
+    var returned: (HTTPURLResponse, Data)?;
     let task = URLSession.shared.dataTask(with: url){ data, response, err in
         if (err != nil) {
             returned = nil;
         } else {
-            returned = (response!, data!);
+            returned = (response! as! HTTPURLResponse, data!);
         }
     }
     task.resume();
@@ -75,6 +75,6 @@ public struct SCMClient {
 
 
 public enum SCMError: Error{
-    case jsonParseError, httpRequestError, objectNotFoundError, otherApiError
+    case jsonParseError, httpRequestError, objectNotFoundError, otherApiError, serverFileError
 }
 
