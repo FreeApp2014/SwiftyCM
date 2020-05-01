@@ -67,7 +67,7 @@ public struct Song {
             }
         }
         self.title = json["name"].string!;
-        self.uploader = json["uploader"].string!;
+        self.uploader = json["uploader"].string ?? "Unknown";
         self.canDownload = json["available"].int! == 1;
         self.sampleRate = UInt(json["sample_rate"].string!)!;
         self.game = PartialGameField(id: String(json["game_id"].int!), title: json["game_name"].string!);
@@ -76,7 +76,7 @@ public struct Song {
         self.downloadCount = UInt(json["downloads"].string!)!;
     }
     public func download(inFormat format: SongFileType) -> Data?{ //Download the file in specified file type
-        guard let data = performGetRequest(url: "https://smashcustommusic.net/\(format)/\(self.id)") else {
+        guard let data = performGetRequest(url: "https://smashcustommusic.net/\(format)/\(self.id)&noIncrement=1") else {
             return nil
         }
         if (data.0.statusCode) != 200 {
