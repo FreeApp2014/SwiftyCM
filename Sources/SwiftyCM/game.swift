@@ -32,10 +32,10 @@ public struct Game {
         for song in songs{
             let songo = PartialSongField(id: String(song["song_id"].int!),
                     title: song["song_name"].string!,
-                    secLength:  UInt(song["song_length"].string!)!,
+                    secLength:  UInt(song["song_length"].string ?? "0")!,
                     uploader: song["song_uploader"].string ?? "unknown",
                     canDownload: song["song_available"].int! == 1,
-                    downloadCount: UInt(song["song_downloads"].string!)!);
+                    downloadCount: UInt(song["song_downloads"].string ?? "0")!);
             self.songs.append(songo);
         }
     }

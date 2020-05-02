@@ -64,11 +64,6 @@ public struct SCMClient {
                     downloadCount: UInt(song["song_downloads"].string ?? "0")!, 
                     gameId: String(song["song_game_id"].int!)));
         }
-//        substrs.remove(at: 0);
-//        for str in substrs {
-//            print(str);
-//            returnval = returnval.filter { a in a.title.lowercased().contains(str.lowercased())}
-//        }
         return returnval;
     }
 }
