@@ -27,7 +27,7 @@ public struct SCMClient {
     }
     public static func gameList() throws -> [GameListGameField]{
         var returnval: [GameListGameField] = [];
-        guard let http = performGetRequest(url: "https://smashcustommusic.net/json/gamelist") else {
+        guard let http = performGetRequest(url: "https://smashcustommusic.net/json/gamelist/") else {
             throw SCMError.httpRequestError
         }
         let json = JSON(data: http.1);
@@ -41,7 +41,7 @@ public struct SCMClient {
     }
     public static func search (_ query: String) throws -> [SearchSongField]{
         var returnval: [SearchSongField] = [];
-        guard let http = performGetRequest(url: "https://smashcustommusic.net/json/search?search=\(query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)") else {
+        guard let http = performGetRequest(url: "https://smashcustommusic.net/json/search/?search=\(query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)") else {
             throw SCMError.httpRequestError
         }
         let json = JSON(data: http.1);
