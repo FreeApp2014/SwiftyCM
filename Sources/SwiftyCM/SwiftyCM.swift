@@ -39,8 +39,8 @@ public struct SCMClient {
         }
         return returnval;
     }
-    public static func search (_ query: String) throws -> [SearchSongField]{
-        var returnval: [SearchSongField] = [];
+    public static func search (_ query: String) throws -> [Song]{
+        var returnval: [Song] = [];
         guard let http = performGetRequest(url: "https://smashcustommusic.net/json/search/?search=\(query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)") else {
             throw SCMError.httpRequestError
         }
@@ -55,7 +55,7 @@ public struct SCMClient {
             throw SCMError.otherApiError;
         }
         for song in songs {
-            returnval.append(SearchSongField(
+            returnval.append(Song(
                     id: String(song["song_id"].int!), 
                     title: song["song_name"].string!, 
                     secLength: UInt(song["song_length"].string ?? "0")!, 
