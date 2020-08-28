@@ -38,12 +38,12 @@ public class Song {
             }
         }
     }
-    public var gameId: Int {
+    public var gameId: String {
      get {
          if (self.igameId == nil) {
              try! resolve(self.id);
          }   else {
-               return self.igameId;   
+               return self.igameId!;   
          }
      }
     }
