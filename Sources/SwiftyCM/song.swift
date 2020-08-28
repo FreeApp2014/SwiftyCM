@@ -42,9 +42,8 @@ public class Song {
      get {
          if (self.igameId == nil) {
              try! resolve(self.id);
-         }   else {
-               return self.igameId!;   
          }
+         return self.igameId!;   
      }
     }
     public var game: Game {
