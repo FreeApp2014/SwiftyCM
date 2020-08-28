@@ -38,6 +38,15 @@ public class Song {
             }
         }
     }
+    public var gameId: Int {
+     get {
+         if (self.igameId == nil) {
+             try! resolve(self.id);
+         }   else {
+               return self.igameId;   
+         }
+     }
+    }
     public var game: Game {
         get {
             if let theGame = self.igame {
