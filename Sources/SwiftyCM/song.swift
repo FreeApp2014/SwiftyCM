@@ -107,10 +107,10 @@ public class Song {
         self.title = json["name"].string!;
         self.uploader = json["uploader"].string ?? "Unknown";
         self.canDownload = json["available"].int! == 1;
-        self.isampleRate = UInt(json["sample_rate"].string!)!;
+        self.isampleRate = UInt(json["sample_rate"].string ?? "0")!;
         self.igameId = String(json["game_id"].int!);
         self.iloop = SongLoopInformation(doesLoop: json["loop_type"].string! != "None", loopStart:  UInt(json["start_loop_point"].string!)!, loopTypeDesc:  json["loop_type"].string!);
-        self.secLength = UInt(json["length"].string!)!;
+        self.secLength = UInt(json["length"].string ?? "0")!;
         self.downloadCount = UInt(json["downloads"].string!)!;
         self.resolved = true;
     }
