@@ -12,7 +12,7 @@ let package = Package(
             targets: ["SwiftyCM"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/FreeApp2014/SwiftyJSON", from: "17.0.6")
+        .package(url: "https://github.com/FreeApp2014/SwiftyJSON", from: "17.0.7")
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
