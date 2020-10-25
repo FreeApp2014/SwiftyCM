@@ -19,12 +19,18 @@ func performGetRequest(url: String) -> (HTTPURLResponse, Data)? {
     return returned;
 }
 
-//This struct is reserved for future use
-public struct SCMClient {
+/// Main library class
+public class SCMClient {
+    /// Not yet used
     private var apiKey: String;
     public init (apiKey: String){
         self.apiKey = apiKey;
     }
+    ///  Get games list
+    ///
+    /// - Returns: Array of games available on SCM
+    /// - Throws: `SCMError.httpRequestError` when request failed
+    /// - Throws: `SCMError.jsonParseError` when json response could not be parsed
     public static func gameList() throws -> [GameListGameField]{
         var returnval: [GameListGameField] = [];
         guard let http = performGetRequest(url: "https://smashcustommusic.net/json/gamelist/") else {
@@ -39,6 +45,12 @@ public struct SCMClient {
         }
         return returnval;
     }
+    /// Search songs by query
+    ///
+    /// - Parameter query: The string to search
+    /// - Returns: Array of matching `Song`s
+    /// -  Throws: `SCMError.httpRequestError` when request failed
+    /// - Throws: `SCMError.jsonParseError` when json response could not be parsed
     public static func search (_ query: String) throws -> [Song]{
         var returnval: [Song] = [];
         guard let http = performGetRequest(url: "https://smashcustommusic.net/json/search/?search=\(query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)") else {
@@ -68,8 +80,17 @@ public struct SCMClient {
     }
 }
 
-
-public enum SCMError: Error{
-    case jsonParseError, httpRequestError, objectNotFoundError, otherApiError, serverFileError
+/// Error enumeration used in the library
+public enum SCMError: Error {
+    /// Occurs when client fails to parse received JSON
+    case jsonParseError,
+         /// Occurs when thr request didn't go through
+         httpRequestError,
+         /// Occurs when requested object was not found
+         objectNotFoundError,
+         /// Unexpected behavior
+         otherApiError,
+         /// Occurs when server is unable to provide the file
+         serverFileError
 }
 
