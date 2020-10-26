@@ -5,10 +5,21 @@
 import Foundation
 import SwiftyJSON
 
-//Represents a game object on SCM, typically received from the game endpoint
+/// Represents a game object on SCM, typically received from the game endpoint
 public struct Game {
-    public let id: String, title: String, songCount: UInt;
+    /// The game ID
+    public let id: String,
+            /// Game title
+            title: String,
+            /// Game song count
+            songCount: UInt;
+    /// Array of `Song` in the game
     public var songs: [Song];
+
+    /// Initialize a new game object
+    ///
+    /// - Parameter id: The ID of the game on SCM
+    /// - Throws: `SCMError`
     public init(_ id: String) throws {
         self.id = id;
         guard let e = performGetRequest(url: "https://smashcustommusic.net/json/game/\(self.id)") else {
@@ -40,10 +51,16 @@ public struct Game {
         }
     }
 }
-
-//The struct for game information from gamelist
+/// The struct for game information from gamelist
+@available(*, deprecated)
 public struct GameListGameField {
-    public let id: String, title: String, songCount: UInt;
+    /// Game ID
+    public let id: String,
+            /// Game title
+            title: String,
+            /// Game song count
+            songCount: UInt;
+    /// Resolve the partial game to full game
     public func resolveGame() throws -> Game{ //Get full Game object for this PartialGame
         do{
             let e = try Game(self.id);
