@@ -1,0 +1,47 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/018/Documents/SwiftyCM/Sources/SwiftyCM/SwiftyCM.swift",
+      "line": 28,
+      "symbol": "SCMClient.init(apiKey:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/018/Documents/SwiftyCM/Sources/SwiftyCM/song.swift",
+      "line": 19,
+      "symbol": "SongFileType.brstm",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/018/Documents/SwiftyCM/Sources/SwiftyCM/song.swift",
+      "line": 19,
+      "symbol": "SongFileType.bwav",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/018/Documents/SwiftyCM/Sources/SwiftyCM/song.swift",
+      "line": 19,
+      "symbol": "SongFileType.wav",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/018/Documents/SwiftyCM/Sources/SwiftyCM/song.swift",
+      "line": 118,
+      "symbol": "Song.init(id:title:secLength:uploader:canDownload:downloadCount:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/018/Documents/SwiftyCM/Sources/SwiftyCM/song.swift",
+      "line": 149,
+      "symbol": "Song.init(id:title:secLength:uploader:canDownload:downloadCount:gameId:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/018/Documents/SwiftyCM"
+}
