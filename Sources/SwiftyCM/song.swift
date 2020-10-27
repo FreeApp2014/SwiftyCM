@@ -16,7 +16,16 @@ public struct SongLoopInformation{
 
 /// Enum containing file types that can be downloaded from the API
 public enum SongFileType: String {
-    case brstm = "brstm", wav = "wav", bwav = "bwav";
+    /// BRSTM file
+    case brstm = "brstm",
+         /// WAV file
+         wav = "wav",
+         /// BWAV file
+         bwav = "bwav",
+         /// BFSTM file
+         bfstm = "bfstm",
+         /// BFSTM Little-endian file
+         bfstmLE = "bfstm_le";
 }
 
 /// Represents a song object on SCM, typically received from the song endpoint
@@ -85,9 +94,9 @@ public class Song {
     /// Initialize a song object
     ///
     /// - Parameter id: ID of the requested song on SCM
-    /// - Throws: SCMError.httpRequestError in case of request failure
-    /// - Throws: SCMError.otherApiError in case the client did not understand the response
-    /// - Throws: SCMError.objectNotFoundError in case the requested song does not exist
+    /// - Throws: `SCMError.httpRequestError` in case of request failure
+    /// - Throws: `SCMError.otherApiError` in case the client did not understand the response
+    /// - Throws: `SCMError.objectNotFoundError` in case the requested song does not exist
     public init (_ id: String) throws {
         self.id = id;
         guard let e = performGetRequest(url: "https://smashcustommusic.net/json/song/\(self.id)") else {

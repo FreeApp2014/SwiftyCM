@@ -34,47 +34,5 @@ do {
 ```
 ## Documentation
 
-Structs: `Game`, `Song`<br>
-
-### Game
-
-The object that represents a game in SCM database<br>
-**Initializer:** `Game(_ id: String)`;<br>
-Properties: 
-* id: String - the game id,
-* title: String - the game name,
-* songs: [PartialSongField] - the songs in the game.
-
-#### PartialSongField
-
-The limited subset of song information provided by the Game object<br>
-**Methods:** `resolveSong()` - get the full Song object<br>
-**Properties:** id: String, title: String, secLength: UInt, uploader: String, canDownload: Bool, downloadCount: UInt<br>
-See *Song* for more information
-
-### Song
-
-The object that represents a song in SCM database<br>
-**Initializer:** `Song(_ id: String)`;<br>
-**Properties:** 
-* id: String - song id,
-* title: String - song title,
-* uploader: String - the username of song uploader, 
-* secLength: UInt- the audio length in seconds, 
-* sampleRate: UInt - the sample rate of the audio, 
-* loop: SongLoopInformation - information about looping, 
-* canDownload: Bool - availability of the file on server, 
-* downloadCount: UInt - download count, 
-* game: PartialGameField - the game which the song belongs to
-
-#### PartialGameField
-A limited subset of game information containing the id and title. See *Game* for more information
-
-#### SongLoopInformation
-A struct containing information about looping:
-* doesLoop: Bool - whether or not the file is loopable
-* loopStart: UInt - looping start point
-* loopTypeDesc: String - the loop type string 
-
-## Thrown errors
-jsonParseError, httpRequestError, objectNotFoundError, otherApiError,
+The documentation for this project can be built using [jazzy](https://github.com/realm/jazzy). 
+The pre-built documentation can be found in `docs/` or on the [Github Pages](https://freeapp2014.github.io/SwiftyCM)
