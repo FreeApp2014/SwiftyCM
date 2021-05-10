@@ -21,7 +21,10 @@ public struct Game {
     /// - Parameter id: The ID of the game on SCM
     /// - Throws: `SCMError`
     public init(_ id: String) throws {
-        self.id = id;
+        guard let intVal = Int(id) else {
+            throw SCMError.otherApiError;
+        }
+        self.id = String(intVal);
         guard let e = performGetRequest(url: "https://smashcustommusic.net/json/game/\(self.id)") else {
             throw SCMError.httpRequestError
         };
